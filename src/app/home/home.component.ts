@@ -145,7 +145,7 @@ export class HomeComponent {
 
   public isAdmin() {
     const role : string | null = localStorage.getItem('user-role');
-    if(role === 'Admin')
+    if(role === 'Admin' || role === 'Kunnstnar')
     {
       return true;
     } else {
