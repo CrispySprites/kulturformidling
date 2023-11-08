@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="content">
+    <div class="info-box">
+      <p></p>
+      <p></p>
+    </div>
+
+<mat-tab-group>
+  <mat-tab *ngFor="let item of types" [label]="item.name">
+    <table mat-table [dataSource]="getArt(item.id)" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="artName">
+        <th mat-header-cell *matHeaderCellDef> Kunstnamn </th>
+        <td mat-cell *matCellDef="let element"> {{element.artName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Beskriving </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="artist">
+        <th mat-header-cell *matHeaderCellDef> Kunstnar namn </th>
+        <td mat-cell *matCellDef="let element"> {{element.artistName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="from">
+        <th mat-header-cell *matHeaderCellDef> Frå dato </th>
+        <td mat-cell *matCellDef="let element"> {{element.from}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="to">
+        <th mat-header-cell *matHeaderCellDef> Til dato </th>
+        <td mat-cell *matCellDef="let element"> {{element.to}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="author">
+        <th mat-header-cell *matHeaderCellDef> Registrert av </th>
+        <td mat-cell *matCellDef="let element"> {{element.to}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="accent" (click)="openArtDialog(element)">Rediger</button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="warn" (click)="deleteArt(element)">Slett</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  </mat-tab>
+</mat-tab-group>
+
+  </div>
+</div>
+
+  <div class="btn-container" *ngIf="isAdmin()">
+    <button mat-raised-button color="accent" (click)="openArtDialog(createNewArt())">
+      <mat-icon>add</mat-icon>
+      Ny Kunnst
+    </button>
+    <button mat-raised-button color="accent" (click)="openTypeDialog(createNewType())">
+      <mat-icon>add</mat-icon>
+      Ny Kategori
+    </button>
+  </div>
+
+
+
+

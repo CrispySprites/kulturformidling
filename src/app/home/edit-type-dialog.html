@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Kategoriregister</h1>
+<div mat-dialog-content class="dialog">
+  <mat-form-field class="input-field">
+    <mat-label>c namn</mat-label>
+    <input matInput [(ngModel)]="data.name" required>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">avbrytt</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Lagre</button>
+</div>

@@ -1,0 +1,29 @@
+<mat-toolbar class="topbar">
+  <span>
+    <h1>KF</h1>
+  </span>
+  <span>
+    <h1>Kulturformidlinga</h1>
+  </span>
+</mat-toolbar>
+<div class="navbar">
+  <span class="navbar-content">
+    <ul>
+      <li><button [routerLink]="['/Heim']"n mat-flat-button color="primary">Heim</button></li>
+      <li *ngIf="isAdmin()"><button [routerLink]="['/Rolle-Søknadar']" mat-flat-button color="primary">Rolle søknadar</button></li>
+      <li><button [routerLink]="['/Om-oss']" mat-flat-button color="primary">Om oss</button></li>
+    </ul>
+    <ul *ngIf="!isLoggedIn()">
+      <li><button mat-flat-button color="primary" [routerLink]="['/Logg-inn']">Logg inn</button></li>
+    </ul>
+    <ul *ngIf="isLoggedIn()">
+      <li> <button mat-flat-button color="primary" [matMenuTriggerFor]="user">{{getUsername()}} <mat-icon matIconSuffix>more_vert</mat-icon></button></li>
+    </ul>
+  </span>
+
+</div>
+
+<mat-menu #user="matMenu">
+  <button mat-menu-item [routerLink]="['/Rolle-søknad']">Søk om rolle</button>
+  <button mat-menu-item routerLink="" (click)="logOut()">Logg ut</button>
+</mat-menu>

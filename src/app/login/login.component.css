@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.login-container {
+  padding: 4rem 0rem;
+  width: 90%;
+  border-radius: .5rem;
+}
+
+.input-field {
+  width: 100%;
+}
+
+.btn {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 40rem){
+  .login-container {
+    margin-top: 8rem;
+    padding: 4rem 6rem;
+    width: 30%;
+  }
+}

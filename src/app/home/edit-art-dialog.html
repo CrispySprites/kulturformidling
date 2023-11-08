@@ -1,0 +1,50 @@
+<h1 mat-dialog-title>KunnstRegister</h1>
+<div mat-dialog-content class="dialog">
+  <mat-form-field class="input-field">
+    <mat-label>Kunstnamn</mat-label>
+    <input matInput [(ngModel)]="data.artName" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="input-field">
+    <mat-label>Beskriving</mat-label>
+    <input matInput [(ngModel)]="data.description" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="input-field">
+    <mat-label>Kunntnar</mat-label>
+    <mat-select [(ngModel)]="data.artistId">
+      <mat-option *ngFor="let item of artists" [value]="item.userId">
+        {{item.userName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="input-field">
+    <mat-label>Kategori</mat-label>
+    <mat-select [(ngModel)]="data.typeId">
+      <mat-option *ngFor="let item of types" [value]="item.id">
+        {{item.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Velg start dato</mat-label>
+    <input matInput [matDatepicker]="from" [(ngModel)]="data.from">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="from"></mat-datepicker-toggle>
+    <mat-datepicker #from></mat-datepicker>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Velg slutt dato</mat-label>
+    <input matInput [matDatepicker]="to" [(ngModel)]="data.to">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="to"></mat-datepicker-toggle>
+    <mat-datepicker #to></mat-datepicker>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">avbrytt</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Lagre</button>
+</div>

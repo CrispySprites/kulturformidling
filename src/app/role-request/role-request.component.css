@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: row;
+}
+
+.content {
+  width: 90%;
+  border-radius: .5rem;
+}
+
+.input-field {
+  width: 100%;
+}
+
+.btn {
+  width: 100%;
+}
+
+.bottom-text {
+  padding: 2rem;
+  text-align: center;
+}
+
+@media (min-width: 40rem){
+  .content {
+    margin-top: 4rem;
+    padding: 4rem 6rem;
+    width: 30%;
+  }
+}

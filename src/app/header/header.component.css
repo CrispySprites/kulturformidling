@@ -1,0 +1,43 @@
+.topbar {
+  display: flex;
+  gap: 1%;
+}
+
+.navbar {
+  background-color: #3F51B5;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: baseline;
+  font-size: 1rem;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+  transition: all .3s;
+}
+
+a:hover {
+  filter: brightness(80%);
+  text-decoration: underline;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0 1rem;
+}
+
+@media (min-width: 40rem){
+  .navbar-content {
+    flex-direction: row;
+  }
+  ul {
+    gap: 1rem;
+    flex-direction: row;
+  }
+}

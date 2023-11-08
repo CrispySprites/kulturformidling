@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="content">
+    <h1>Registrer ny brukar</h1>
+    <mat-error>{{errorMessage}}</mat-error>
+    <form [formGroup]="user">
+      <mat-form-field class="input-field" hideRequiredMarker>
+        <mat-label>E-post</mat-label>
+        <mat-icon matIconPrefix>mail</mat-icon>
+        <input matInput placeholder="Skriv inn E-post" required formControlName="email">
+        <mat-error *ngIf="user.controls['email'].hasError('required')">Skriv inn E-post.</mat-error>
+        <mat-error *ngIf="user.controls['email'].hasError('email')">Skriv inn yldig e-post addrsse.</mat-error>
+      </mat-form-field>
+
+      <div class="row">
+        <mat-form-field class="input-field" hideRequiredMarker>
+          <mat-label>Namn</mat-label>
+          <mat-icon matIconPrefix>person</mat-icon>
+          <input matInput placeholder="Skriv inn namn" required formControlName="name">
+          <mat-error>Skriv inn namn</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input-field" hideRequiredMarker>
+          <mat-label>Telefon nummer</mat-label>
+          <mat-icon matIconPrefix>phone</mat-icon>
+          <input type="tel" matInput placeholder="Skriv inn Telefon nummer" formControlName="phone">
+        </mat-form-field>
+      </div>
+      <mat-form-field class="input-field" hideRequiredMarker>
+        <mat-label>Passord</mat-label>
+        <mat-icon matIconPrefix>lock</mat-icon>
+        <input matInput placeholder="Lage eit passord" required [type]="hide ? 'password' : 'text'" formControlName="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="user.controls['password'].hasError('required')">Skriv inn passord.</mat-error>
+        <mat-error *ngIf="user.controls['password'].hasError('minlength')">Passord må bestå av 8 tekn eller fleir.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="input-field" hideRequiredMarker>
+        <mat-icon matIconPrefix>lock</mat-icon>
+        <mat-label>Bekreft passord</mat-label>
+        <input matInput placeholder="Skriv inn passord" required type="password" formControlName="confirmPassword">
+        <mat-error>Sørg for at passorda dine samsvarar.</mat-error>
+      </mat-form-field>
+
+      <button class="btn" type="submit" mat-raised-button color="accent" (click)="register()">Registrer ny brukar</button>
+    </form>
+    <p class="bottom-text"><a routerLink="../Logg-inn">Har du allerede ein brukar</a></p>
+  </div>
+
+</div>

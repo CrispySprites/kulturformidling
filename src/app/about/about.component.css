@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.content {
+  width: 80%;
+  font-size: 1rem;
+}
+
+.info-box {
+  padding: 2rem 4rem;
+  background-color: #DCDCDC;
+  margin: 2rem 1rem;
+}
+
+.table-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.table {
+  width: 100%;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: end;
+}
+
+.input-field {
+  width: 100%;
+}
