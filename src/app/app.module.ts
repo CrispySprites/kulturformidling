@@ -29,6 +29,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
+import { HistoryComponent } from './history/history.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     RegisterComponent,
     RoleRequestComponent,
     AcceptRoleRequestComponent,
-    HomeComponent
+    HomeComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,

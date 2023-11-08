@@ -8,6 +8,7 @@ import { AcceptRoleRequestComponent } from './accept-role-request/accept-role-re
 import { adminGuard } from './guards/admin.guard';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { HistoryComponent } from './history/history.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: "Heim",
     component: HomeComponent
+  },
+  {
+    path: "Historik",
+    component: HistoryComponent
   },
   {
     path: "Om-oss",

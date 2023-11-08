@@ -11,6 +11,7 @@
     <ul>
       <li><button [routerLink]="['/Heim']"n mat-flat-button color="primary">Heim</button></li>
       <li *ngIf="isAdmin()"><button [routerLink]="['/Rolle-Søknadar']" mat-flat-button color="primary">Rolle søknadar</button></li>
+      <li><button [routerLink]="['/Historik']"n mat-flat-button color="primary">Historik</button></li>
       <li><button [routerLink]="['/Om-oss']" mat-flat-button color="primary">Om oss</button></li>
     </ul>
     <ul *ngIf="!isLoggedIn()">
