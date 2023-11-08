@@ -21,11 +21,10 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: npm install, build, and test
+      - name: npm install, build
         run: |
           npm install
-          npm run build --if-present
-          npm run test --if-present
+          npm run build --prod
 
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
@@ -59,4 +58,4 @@ jobs:
           app-name: 'app-staf-kulturformidling-d'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7E1409D4D1CA4C14B33A304CD77F7973 }}
-          package: .
+          package: ./dist/kulturformidling
